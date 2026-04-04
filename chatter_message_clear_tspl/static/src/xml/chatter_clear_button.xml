@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Chatter-topbar')]/div[hasclass('flex-grow-1') and hasclass('d-flex')]/button[i[hasclass('oi-search')]]" position="after">
+            <button t-if="props.threadId and canClearChatterMessages"
+                    class="btn btn-link text-danger px-1"
+                    t-att-class="{ 'my-2': !props.compactHeight }"
+                    t-att-disabled="isDisabled"
+                    title="Clear chatter"
+                    t-on-click="onClickClearChatterMessages">
+                <i class="fa fa-trash-o" role="img"/>
+            </button>
+        </xpath>
+    </t>
+</templates>
